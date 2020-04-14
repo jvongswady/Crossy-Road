@@ -16,21 +16,24 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && !isHopping)
+        if(Input.GetKeyDown(KeyCode.W)) //&& !isHopping)
         {
+            //animator.SetTrigger("hop");
+            //isHopping = true;
             float zDiff = 0;
-            if(transform.position.z%1!=0)
+            if(transform.position.z % 1 != 0)
             {
-                zDiff = Mathf.Round(transform.position.z) - transform.position.z;
+                zDiff = (transform.position.z - Mathf.Round(transform.position.z) - transform.position.z);
             }
             MoveCharacter(new Vector3(1, 0, zDiff));
 
         }
-        else if(Input.GetKeyDown(KeyCode.A) && !isHopping)
+        else if(Input.GetKeyDown(KeyCode.A)) // && !isHopping)
         {
+            Debug.Log("POOP");
             MoveCharacter(new Vector3(0, 0, 1));
         }
-        else if (Input.GetKeyDown(KeyCode.D) && !isHopping)
+        else if (Input.GetKeyDown(KeyCode.D)) // && !isHopping)
         {
             MoveCharacter(new Vector3(0, 0, -1));
         }
